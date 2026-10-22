@@ -1,0 +1,28 @@
+
+import numpy as np
+
+# Input data
+X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+
+# Output data (XOR)
+y = np.array([[0], [1], [1], [0]])
+
+# Initialize weights and bias
+np.random.seed(1)
+W1 = np.random.rand(2, 2)
+W2 = np.random.rand(2, 1)
+b1 = np.zeros((1, 2))
+b2 = np.zeros((1, 1))
+
+# Sigmoid activation function
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+# Feed forward
+hidden = sigmoid(np.dot(X, W1) + b1)
+output = sigmoid(np.dot(hidden, W2) + b2)
+
+print("Input:")
+print(X)
+print("Predicted Output:")
+print(np.round(output, 3))
